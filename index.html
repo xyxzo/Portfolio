@@ -11,108 +11,89 @@
 
   <style>
     :root {
-      --ink: #020102;
-      --charcoal: #0a0a0f;
-      --champagne: #e8c89a;
-      --gold-glow: #f4e0c4;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --glass-primary: rgba(17, 25, 40, 0.72);
-      --glass-secondary: rgba(15, 23, 42, 0.88);
-      --border-glass: rgba(255, 255, 255, 0.06);
-      --shadow-soft: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
-      --shadow-glow: 0 0 0 1px rgba(232, 200, 154, 0.2);
+      --ink: #010101;
+      --charcoal: #09090e;
+      --champagne: #e9cba3;
+      --gold-glow: #f5e3cf;
+      --text-primary: #f9fbfd;
+      --text-secondary: #d0d8e6;
+      --glass-primary: rgba(15, 23, 42, 0.78);
+      --glass-secondary: rgba(12, 20, 38, 0.92);
+      --border-glass: rgba(255, 255, 255, 0.05);
+      --shadow-deep: 0 35px 80px -20px rgba(0, 0, 0, 0.85);
     }
 
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { 
       scroll-behavior: smooth; 
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
       background: 
-        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(232,200,154,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(232,200,154,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 30% at 40% 90%, rgba(148,163,184,0.04) 0%, transparent 50%),
-        #020102;
+        radial-gradient(ellipse 90% 60% at 15% 25%, rgba(233,203,163,0.09) 0%, transparent 52%),
+        radial-gradient(ellipse 70% 50% at 85% 75%, rgba(233,203,163,0.07) 0%, transparent 52%),
+        radial-gradient(ellipse 60% 40% at 35% 85%, rgba(156,169,196,0.05) 0%, transparent 52%),
+        #010101;
       color: var(--text-primary);
-      line-height: 1.65;
-      overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    /* Navbar */
+    /* Enhanced Navbar */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 100;
-      backdrop-filter: blur(32px);
-      background: rgba(2, 1, 2, 0.85);
+      backdrop-filter: blur(40px);
+      background: rgba(1, 1, 1, 0.88);
       border-bottom: 1px solid var(--border-glass);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .navbar.scrolled {
-      background: rgba(2, 1, 2, 0.95);
-      box-shadow: var(--shadow-soft);
+      background: rgba(1, 1, 1, 0.98);
+      box-shadow: var(--shadow-deep);
     }
 
     .nav-container {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 2.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 80px;
+      height: 90px;
     }
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+      font-size: clamp(1.4rem, 2.8vw, 1.75rem);
       font-weight: 600;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
       background: linear-gradient(135deg, var(--champagne), var(--gold-glow));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      position: relative;
-    }
-
-    .logo::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--champagne), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
     }
 
     .nav {
       display: flex;
-      gap: 2.5rem;
+      gap: 3rem;
       font-weight: 400;
-      font-size: 0.875rem;
-      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
     }
 
     .nav a {
       color: var(--text-secondary);
       text-decoration: none;
       position: relative;
-      padding: 0.5rem 0;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.75rem 0;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .nav a::before {
@@ -123,63 +104,57 @@
       width: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--champagne), var(--gold-glow));
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transform: translateX(-50%);
+      border-radius: 1px;
     }
 
-    .nav a:hover {
-      color: var(--text-primary);
-    }
+    .nav a:hover { color: var(--text-primary); }
+    .nav a:hover::before { width: 100%; }
 
-    .nav a:hover::before {
-      width: 100%;
-    }
-
-    /* Main Layout */
+    /* Layout */
     .main-container {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 2.25rem;
     }
 
     main {
-      padding-top: 120px;
-      padding-bottom: 6rem;
+      padding-top: 140px;
+      padding-bottom: 8rem;
       display: flex;
       flex-direction: column;
-      gap: 10rem;
+      gap: 12rem;
     }
 
-    /* Section Animations */
     section {
       opacity: 0;
-      transform: translateY(3rem);
-      transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: translateY(4rem) scale(0.98);
+      transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     section.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
-    /* Typography */
     .section-label {
-      font-size: 0.6875rem;
+      font-size: 0.7rem;
       font-weight: 400;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--text-secondary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      font-size: clamp(3rem, 7vw, 5rem);
       font-weight: 500;
       line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-glow) 100%);
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-glow) 70%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -188,58 +163,60 @@
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: 1.8fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.85fr 1fr;
+      gap: 5rem;
       align-items: center;
       min-height: 100vh;
     }
 
     .hero-content p {
-      font-size: 1.125rem;
+      font-size: 1.2rem;
       font-weight: 300;
-      max-width: 42rem;
-      margin: 2rem 0 3rem;
+      max-width: 48rem;
+      margin: 2.5rem 0 4rem;
       color: var(--text-secondary);
-      line-height: 1.75;
+      line-height: 1.85;
     }
 
     .elo-highlight {
-      font-weight: 600;
+      font-weight: 700;
       background: linear-gradient(135deg, var(--champagne), var(--gold-glow));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-size: 1.2em;
+      font-size: 1.35em;
       position: relative;
+      display: inline-block;
     }
 
     .elo-highlight::after {
       content: '';
       position: absolute;
-      bottom: -0.25rem;
+      bottom: -0.4rem;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--champagne), var(--gold-glow));
-      border-radius: 1px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--champagne), var(--gold-glow), transparent);
+      border-radius: 2px;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 3rem 0 3.5rem;
+      gap: 2rem;
+      margin: 4rem 0 4.5rem;
     }
 
     .stat-card {
-      padding: 1.75rem;
+      padding: 2.25rem;
       border: 1px solid var(--border-glass);
-      border-radius: 24px;
+      border-radius: 28px;
       background: var(--glass-primary);
-      backdrop-filter: blur(24px);
+      backdrop-filter: blur(28px);
       position: relative;
       overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
     }
 
     .stat-card::before {
@@ -251,59 +228,58 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--champagne), transparent);
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.6s ease;
     }
 
     .stat-card:hover {
       background: var(--glass-secondary);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: var(--shadow-soft), var(--shadow-glow);
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: var(--shadow-deep), 0 0 0 1px rgba(233, 203, 163, 0.25);
     }
 
-    .stat-card:hover::before {
-      opacity: 1;
-    }
+    .stat-card:hover::before { opacity: 1; }
 
     .stat-label {
-      font-size: 0.6875rem;
-      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
       color: var(--text-secondary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       text-transform: uppercase;
     }
 
     .stat-value {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 600;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
       color: var(--champagne);
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.025em;
     }
 
     .stat-desc {
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       color: var(--text-primary);
-      opacity: 0.9;
+      opacity: 0.92;
+      font-weight: 400;
     }
 
     .cta-button {
       display: inline-flex;
       align-items: center;
-      padding: 1rem 2.5rem;
+      padding: 1.25rem 3rem;
       border: 1px solid transparent;
-      border-radius: 50px;
+      border-radius: 60px;
       background: linear-gradient(135deg, var(--champagne) 0%, var(--gold-glow) 100%);
-      color: #1e1b18;
-      font-size: 0.875rem;
+      color: #1a150f;
+      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 20px 40px rgba(232, 200, 154, 0.3);
+      box-shadow: 0 25px 50px rgba(233, 203, 163, 0.35);
       position: relative;
       overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .cta-button::before {
@@ -313,27 +289,25 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.6s ease;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 0.8s ease;
     }
 
     .cta-button:hover {
-      box-shadow: 0 30px 60px rgba(232, 200, 154, 0.45);
-      transform: translateY(-3px);
+      box-shadow: 0 40px 80px rgba(233, 203, 163, 0.5);
+      transform: translateY(-5px);
     }
 
-    .cta-button:hover::before {
-      left: 100%;
-    }
+    .cta-button:hover::before { left: 100%; }
 
     /* Profile Card */
     .profile-card {
-      height: 380px;
-      border-radius: 32px;
+      height: 440px;
+      border-radius: 36px;
       border: 1px solid var(--border-glass);
       background: var(--glass-primary);
-      backdrop-filter: blur(28px);
-      padding: 2.5rem;
+      backdrop-filter: blur(32px);
+      padding: 3rem;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -354,41 +328,41 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .profile-title {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
       color: var(--text-secondary);
       text-transform: uppercase;
     }
 
     .profile-badge {
-      padding: 0.5rem 1.25rem;
-      border: 1px solid rgba(232, 200, 154, 0.3);
-      border-radius: 20px;
-      background: rgba(2, 1, 2, 0.6);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(233, 203, 163, 0.35);
+      border-radius: 25px;
+      background: rgba(1, 1, 1, 0.7);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
       color: var(--champagne);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
     }
 
     .profile-grid {
       display: grid;
-      gap: 1rem;
+      gap: 1.5rem;
       flex: 1;
-      font-size: 0.9375rem;
+      font-size: 1rem;
     }
 
     .profile-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .profile-row:last-child {
@@ -399,117 +373,122 @@
     .profile-label {
       color: var(--text-secondary);
       font-weight: 400;
+      letter-spacing: 0.05em;
     }
 
     .profile-value {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
+      letter-spacing: -0.01em;
     }
 
     /* About */
     .about {
       display: grid;
-      grid-template-columns: 1.8fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.85fr 1fr;
+      gap: 5rem;
       align-items: start;
     }
 
     .about-text {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       font-weight: 300;
       color: var(--text-secondary);
-      line-height: 1.8;
-      max-width: 48rem;
+      line-height: 1.9;
+      max-width: 52rem;
     }
 
     .personality-card {
-      padding: 2rem;
+      padding: 2.5rem;
       border: 1px solid var(--border-glass);
-      border-radius: 24px;
+      border-radius: 28px;
       background: var(--glass-secondary);
-      backdrop-filter: blur(24px);
+      backdrop-filter: blur(28px);
     }
 
     .personality-title {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
       color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       text-transform: uppercase;
     }
 
     .personality-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      font-size: 0.9375rem;
+      gap: 1.5rem;
+      font-size: 1rem;
     }
 
     .personality-item {
-      padding: 1rem;
-      border-radius: 16px;
-      background: rgba(232, 200, 154, 0.08);
-      border: 1px solid rgba(232, 200, 154, 0.1);
-      transition: all 0.4s ease;
+      padding: 1.25rem;
+      border-radius: 20px;
+      background: rgba(233, 203, 163, 0.1);
+      border: 1px solid rgba(233, 203, 163, 0.15);
+      transition: all 0.5s ease;
     }
 
     .personality-item:hover {
-      background: rgba(232, 200, 154, 0.15);
-      transform: translateY(-2px);
+      background: rgba(233, 203, 163, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(233, 203, 163, 0.15);
     }
 
     .personality-type {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--champagne);
-      margin-bottom: 0.25rem;
-      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      letter-spacing: -0.015em;
     }
 
     .personality-desc {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       color: var(--text-secondary);
+      font-weight: 400;
     }
 
     /* Contact */
     .contact-content {
-      max-width: 48rem;
+      max-width: 52rem;
     }
 
     .contact-text {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       color: var(--text-secondary);
-      margin-bottom: 3rem;
-      line-height: 1.75;
+      margin-bottom: 4rem;
+      line-height: 1.85;
     }
 
     .contact-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .social-grid {
       display: flex;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .social-link {
-      width: 56px;
-      height: 56px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       border: 1px solid var(--border-glass);
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--glass-primary);
-      backdrop-filter: blur(20px);
-      font-size: 1.125rem;
-      font-weight: 500;
+      backdrop-filter: blur(24px);
+      font-size: 1.25rem;
+      font-weight: 600;
       color: var(--text-primary);
       text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
@@ -520,43 +499,42 @@
       inset: 0;
       background: linear-gradient(135deg, var(--champagne), var(--gold-glow));
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.5s ease;
     }
 
     .social-link:hover {
       border-color: var(--champagne);
-      color: #1e1b18;
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(232, 200, 154, 0.3);
+      color: #1a150f;
+      transform: translateY(-6px) scale(1.08);
+      box-shadow: 0 25px 50px rgba(233, 203, 163, 0.35);
     }
 
-    .social-link:hover::before {
-      opacity: 0.15;
-    }
+    .social-link:hover::before { opacity: 0.2; }
 
     .handle {
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
       font-weight: 400;
+      letter-spacing: 0.05em;
     }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      .hero, .about { grid-template-columns: 1fr; gap: 3rem; }
+    @media (max-width: 1100px) {
+      .hero, .about { grid-template-columns: 1fr; gap: 4rem; }
       .stats-grid { grid-template-columns: 1fr; }
       .personality-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
-      .nav-container, .main-container { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .nav { gap: 1.5rem; }
-      main { padding-top: 100px; gap: 6rem; }
-      .stats-grid { gap: 1rem; }
+      .nav-container, .main-container { padding-left: 1.75rem; padding-right: 1.75rem; }
+      .nav { gap: 2rem; }
+      main { padding-top: 120px; gap: 8rem; }
     }
 
     @media (max-width: 480px) {
       .contact-actions { flex-direction: column; align-items: stretch; }
       .cta-button, .social-grid { justify-content: center; }
+      .stats-grid { gap: 1.25rem; }
     }
   </style>
 </head>
@@ -574,28 +552,27 @@
 
   <div class="main-container">
     <main>
-      <!-- Hero -->
       <section id="hero" class="hero">
         <div>
-          <div class="section-label">Professional Portfolio</div>
+          <div class="section-label">Authority Established</div>
           <h1 class="section-title">Deity</h1>
-          <p>Polymath | Chess Master <span class="elo-highlight">(Elo: 2550+)</span> | Bot/Web Engineering | Rental Operations | Content Systems</p>
+          <p>Polymath | Chess Master <span class="elo-highlight">(Elo: 2550+)</span> | Bot/Web Engineering | Rental Operations | Content Architecture</p>
           
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-label">Strategic Depth</div>
+              <div class="stat-label">Chess Mastery</div>
               <div class="stat-value">2550+</div>
-              <div class="stat-desc">Grandmaster precision</div>
+              <div class="stat-desc">Grandmaster precision applied</div>
             </div>
             <div class="stat-card">
               <div class="stat-label">Engineering</div>
               <div class="stat-value">Bots & Web</div>
-              <div class="stat-desc">Automated excellence</div>
+              <div class="stat-desc">Automated systems excellence</div>
             </div>
             <div class="stat-card">
               <div class="stat-label">Operations</div>
               <div class="stat-value">Rental Systems</div>
-              <div class="stat-desc">Scalable execution</div>
+              <div class="stat-desc">Strategic cashflow architecture</div>
             </div>
           </div>
 
@@ -604,7 +581,7 @@
 
         <div class="profile-card">
           <div class="profile-header">
-            <div class="profile-title">Cognitive Architecture</div>
+            <div class="profile-title">Cognitive Framework</div>
             <div class="profile-badge">INTJ</div>
           </div>
           <div class="profile-grid">
@@ -617,26 +594,26 @@
               <span class="profile-value">514</span>
             </div>
             <div class="profile-row">
-              <span class="profile-label">Methodology</span>
-              <span class="profile-value">Systems First</span>
+              <span class="profile-label">Core Method</span>
+              <span class="profile-value">Systems Architecture</span>
             </div>
             <div class="profile-row">
-              <span class="profile-label">Philosophy</span>
-              <span class="profile-value">Long-term Edges</span>
+              <span class="profile-label">Strategic Focus</span>
+              <span class="profile-value">Compounding Edges</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About -->
       <section id="about" class="about">
         <div>
-          <div class="section-label">Core Framework</div>
-          <h2 class="section-title">Grandmaster discipline across domains</h2>
+          <div class="section-label">Proven Framework</div>
+          <h2 class="section-title">2550+ Elo systems thinking across domains</h2>
           <p class="about-text">
-            2550+ Elo chess intuition powers engineering, operations, and content architecture. 
-            INTJ 5w6 sp/sx 514 cognitive stack ensures deep systems thinking over surface aesthetics. 
-            Every project compounds strategically—quiet precision that outperforms noise.
+            Grandmaster chess discipline (2550+ Elo) powers engineering automation, rental operations, 
+            and content systems architecture. INTJ 5w6 sp/sx 514 cognitive stack prioritizes deep 
+            systems design over surface execution. Every project compounds strategically through 
+            quiet precision that outperforms volume.
           </p>
         </div>
 
@@ -645,31 +622,31 @@
           <div class="personality-grid">
             <div class="personality-item">
               <div class="personality-type">INTJ</div>
-              <div class="personality-desc">Architect of systems</div>
+              <div class="personality-desc">Master architect of complex systems</div>
             </div>
             <div class="personality-item">
               <div class="personality-type">5w6 sp/sx</div>
-              <div class="personality-desc">Strategic investigator</div>
+              <div class="personality-desc">Strategic investigator with depth</div>
             </div>
             <div class="personality-item">
               <div class="personality-type">514 Tritype</div>
-              <div class="personality-desc">Competent visionary</div>
+              <div class="personality-desc">Competent, visionary execution</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Contact -->
       <section id="contact">
         <div class="contact-content">
-          <div class="section-label">Next Move</div>
-          <h2 class="section-title">Selective collaborations only</h2>
+          <div class="section-label">Strategic Partnership</div>
+          <h2 class="section-title">Selective high-caliber collaborations</h2>
           <p class="contact-text">
-            High-caliber strategy + execution. Serious projects where systems thinking compounds value.
+            Systems architecture + grandmaster execution for projects requiring compounding value. 
+            Serious engagements where strategic depth creates durable advantage.
           </p>
 
           <div class="contact-actions">
-            <a href="mailto:deityxterror@gmail.com" class="cta-button">Email</a>
+            <a href="mailto:deityxterror@gmail.com" class="cta-button">Primary Channel</a>
             <div class="social-grid">
               <a href="https://instagram.com/deity_terror" class="social-link" target="_blank" rel="noopener">IG</a>
               <a href="https://linkedin.com/in/deity_terror" class="social-link" target="_blank" rel="noopener">LI</a>
@@ -683,35 +660,23 @@
   </div>
 
   <script>
-    // Navbar scroll effect
+    // Enhanced navbar scroll
     const navbar = document.getElementById('navbar');
-    let lastScrollY = 0;
-    
     window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      
-      lastScrollY = currentScrollY;
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Section reveal animations
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
+    // Optimized section reveals
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, observerOptions);
+    }, { 
+      threshold: 0.12, 
+      rootMargin: '0px 0px -60px 0px' 
+    });
 
     document.querySelectorAll('section').forEach(section => {
       observer.observe(section);

@@ -5,680 +5,189 @@
   <title>Deity | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
-      --ebony-ink: #080404;
-      --raven-black: #0c0707;
-      --caviar-silk: #150f0f;
-      --mother-pearl: #f7f2eb;
-      --imperial-gold: #d9b38c;
-      --heirloom-gold: #e6d4b8;
-      --brushed-rose: #d4a88c;
-      --text-ivory: #fdfaf6;
-      --text-velvet: #e8e0d4;
-      --glass-crystal: rgba(255, 255, 255, 0.028);
-      --gold-veil: rgba(214, 179, 140, 0.06);
-      --etched-silk: rgba(255, 255, 255, 0.028);
-      --aura-ethereal: 0 0 80px rgba(247, 242, 235, 0.14);
-      --shadow-sovereign: 0 60px 160px rgba(0, 0, 0, 0.95);
+      --champagne: #e6c88f;
+      --text-muted: #9ca3af;
     }
 
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { 
-      scroll-behavior: smooth; 
-      scroll-padding-top: 120px;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: 
-        radial-gradient(ellipse 140% 90% at 10% 15%, rgba(247,242,235,0.07) 0%, transparent 48%),
-        radial-gradient(ellipse 110% 70% at 90% 85%, rgba(230,212,184,0.05) 0%, transparent 48%),
-        radial-gradient(ellipse 90% 50% at 25% 95%, rgba(212,168,140,0.04) 0%, transparent 48%),
-        var(--raven-black);
-      color: var(--text-ivory);
-      line-height: 1.8;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(230, 200, 143, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.04) 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(148, 163, 184, 0.25) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.9) 0, #050509 55%);
+      color: #e5e7eb;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Celestial navbar */
-    .navbar {
-      position: fixed;
+    .navbar-wrapper {
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      backdrop-filter: blur(80px) saturate(200%);
-      background: rgba(12, 7, 7, 0.94);
-      border-bottom: 1px solid var(--etched-silk);
-      box-shadow: var(--aura-ethereal), var(--shadow-sovereign);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 40;
     }
 
-    .nav-container {
-      max-width: 1600px;
+    .navbar {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 4rem;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 110px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      background: rgba(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: 0.15em;
-      background: linear-gradient(145deg, var(--mother-pearl), var(--heirloom-gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-    }
-
-    .logo::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--imperial-gold), transparent);
-      border-radius: 2px;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    .nav {
-      display: flex;
-      gap: 4rem;
-      font-weight: 200;
+    .brand {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
       font-size: 1rem;
-      letter-spacing: 0.1em;
+      color: var(--champagne);
     }
 
-    .nav a {
-      color: var(--text-velvet);
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .nav-links a {
       text-decoration: none;
-      padding: 1.25rem 0;
       position: relative;
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
     }
 
-    .nav a::before {
-      content: '';
+    .nav-links a::after {
+      content: "";
       position: absolute;
+      left: 0;
       bottom: 0;
-      left: 50%;
       width: 0;
-      height: 1.5px;
-      background: linear-gradient(90deg, var(--mother-pearl), var(--heirloom-gold));
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      transform: translateX(-50%);
-      border-radius: 1px;
+      height: 1px;
+      background: var(--champagne);
+      transition: width 0.3s ease;
     }
 
-    .nav a:hover {
-      color: var(--text-ivory);
+    .nav-links a:hover {
+      color: var(--champagne);
     }
 
-    .nav a:hover::before {
+    .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* Sovereign estate */
-    .estate {
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 0 4rem;
-    }
-
     main {
-      padding-top: 180px;
-      padding-bottom: 12rem;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 96px 16px 56px;
       display: flex;
       flex-direction: column;
-      gap: 16rem;
+      gap: 120px;
     }
 
-    /* Section unveiling */
     section {
       opacity: 0;
-      transform: translateY(6rem) scale(0.96);
-      transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     section.visible {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
-    /* Heraldic typography */
     .section-label {
-      font-size: 0.75rem;
-      font-weight: 200;
-      letter-spacing: 0.55em;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      color: var(--text-velvet);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .section-label::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 0;
-      width: 50px;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--brushed-rose), transparent);
-      border-radius: 1px;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(4rem, 9vw, 7rem);
-      font-weight: 300;
-      line-height: 1.03;
-      letter-spacing: -0.05em;
-      margin-bottom: 3rem;
-      background: linear-gradient(145deg, var(--text-ivory) 0%, var(--mother-pearl) 70%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
     }
 
-    /* Hero - Dynastic Hall */
-    .hero {
-      display: grid;
-      grid-template-columns: 2.2fr 0.9fr;
-      gap: 8rem;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .hero-subtitle {
-      font-size: 1.45rem;
-      font-weight: 200;
-      max-width: 65rem;
-      margin: 4rem 0 6rem;
-      color: var(--text-velvet);
-      line-height: 1.9;
-      position: relative;
-    }
-
-    .elo-insignia {
-      font-weight: 500;
-      font-size: 1.65em;
-      background: linear-gradient(145deg, var(--imperial-gold), var(--heirloom-gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      display: inline-block;
-      padding: 1.25rem 2rem;
-      margin: 1.5rem 0;
-      font-style: italic;
-    }
-
-    .elo-insignia::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -2rem;
-      transform: translateY(-50%);
-      width: 2px;
-      height: 80px;
-      background: linear-gradient(180deg, transparent, var(--imperial-gold), transparent);
-      opacity: 0.7;
-    }
-
-    /* Heritage reliquaries */
-    .reliquaries {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin: 8rem 0;
-    }
-
-    .reliquary {
-      padding: 4.5rem 3rem;
-      border: 1px solid var(--etched-silk);
-      background: var(--glass-crystal);
-      backdrop-filter: blur(120px) saturate(220%);
-      border-radius: 48px;
-      position: relative;
-      overflow: hidden;
-      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .reliquary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      padding: 3px;
-      background: linear-gradient(45deg, var(--brushed-rose), var(--imperial-gold), var(--mother-pearl), var(--brushed-rose));
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: xor;
-      -webkit-mask-composite: xor;
-      mask-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .reliquary:hover {
-      transform: translateY(-20px) scale(1.03);
-      background: var(--gold-veil);
-      box-shadow: var(--aura-ethereal), var(--shadow-sovereign);
-      border-color: rgba(214, 179, 140, 0.25);
-    }
-
-    .reliquary:hover::before {
-      opacity: 1;
-    }
-
-    .reliquary-label {
-      font-size: 0.8rem;
-      font-weight: 200;
-      letter-spacing: 0.45em;
-      color: var(--text-velvet);
-      margin-bottom: 1.75rem;
-      text-transform: uppercase;
-    }
-
-    .reliquary-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.75rem, 6vw, 4rem);
-      font-weight: 400;
-      color: var(--mother-pearl);
-      margin-bottom: 1.75rem;
-      letter-spacing: -0.04em;
-    }
-
-    .reliquary-text {
-      font-size: 1.1rem;
-      color: var(--text-ivory);
-      opacity: 0.9;
-      font-weight: 200;
-    }
-
-    /* Gallery - Integrated cognitive display */
-    .gallery {
-      display: grid;
-      grid-template-columns: 2.3fr 0.85fr;
-      gap: 9rem;
-      align-items: start;
-    }
-
-    .gallery-text {
-      font-size: 1.55rem;
-      font-weight: 200;
-      color: var(--text-velvet);
-      line-height: 2;
-      max-width: 75rem;
-    }
-
-    .cognitive-vitrine {
-      padding: 4.5rem 3.5rem;
-      border: 1px solid var(--etched-silk);
-      background: var(--gold-veil);
-      backdrop-filter: blur(100px) saturate(200%);
-      border-radius: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cognitive-vitrine::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 15% 15%, rgba(214,179,140,0.12) 0%, transparent 50%),
-        radial-gradient(circle at 85% 85%, rgba(230,212,184,0.08) 0%, transparent 50%);
-    }
-
-    .vitrine-title {
-      font-size: 1rem;
-      font-weight: 200;
-      letter-spacing: 0.45em;
-      color: var(--text-velvet);
-      margin-bottom: 3.5rem;
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    .vitrine-title::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 60px;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--imperial-gold), transparent);
-    }
-
-    .vitrine-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      font-size: 1.15rem;
-    }
-
-    .cognitive-facet {
-      padding: 2.25rem;
-      border-radius: 32px;
-      background: var(--glass-crystal);
-      backdrop-filter: blur(60px);
-      border: 1px solid rgba(214, 179, 140, 0.15);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative;
-    }
-
-    .cognitive-facet::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, transparent, var(--imperial-gold), transparent);
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    .cognitive-facet:hover {
-      background: rgba(214, 179, 140, 0.18);
-      transform: translateX(12px);
-      box-shadow: var(--aura-ethereal);
-    }
-
-    .cognitive-facet:hover::before {
-      opacity: 1;
-    }
-
-    .facet-type {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--imperial-gold);
-      margin-bottom: 1rem;
-      letter-spacing: -0.025em;
-      font-style: italic;
-    }
-
-    .facet-desc {
-      font-size: 1rem;
-      color: var(--text-ivory);
-      opacity: 0.92;
-      font-weight: 200;
-    }
-
-    /* Sovereign altar */
-    .altar {
-      max-width: 75rem;
-    }
-
-    .altar-text {
-      font-size: 1.55rem;
-      color: var(--text-velvet);
-      margin-bottom: 6rem;
-      line-height: 2;
-    }
-
-    .altar-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 4.5rem;
-    }
-
-    .dynastic-seal {
-      padding: 2.25rem 5rem;
-      background: linear-gradient(145deg, var(--imperial-gold), var(--heirloom-gold));
-      color: var(--raven-black);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 50px 120px rgba(214, 179, 140, 0.45);
-      position: relative;
-      overflow: hidden;
-      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-      font-style: italic;
-    }
-
-    .dynastic-seal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-      transition: left 1.2s ease;
-    }
-
-    .dynastic-seal:hover {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 80px 160px rgba(214, 179, 140, 0.65);
-    }
-
-    .dynastic-seal:hover::before {
-      left: 100%;
-    }
-
-    .imperial-pendants {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .pendant {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid var(--etched-silk);
-      background: var(--glass-crystal);
-      backdrop-filter: blur(100px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.65rem;
-      font-weight: 300;
-      color: var(--text-ivory);
-      text-decoration: none;
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative;
-    }
-
-    .pendant::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: linear-gradient(145deg, var(--imperial-gold), var(--heirloom-gold));
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    .pendant:hover {
-      border-color: var(--imperial-gold);
-      color: var(--raven-black);
-      transform: translateY(-18px) scale(1.15);
-      box-shadow: var(--aura-ethereal), 0 60px 140px rgba(214, 179, 140, 0.4);
-    }
-
-    .pendant:hover::before {
-      opacity: 0.2;
-    }
-
-    .dynastic-mark {
-      font-size: 1.1rem;
-      color: var(--text-velvet);
-      font-weight: 200;
-      letter-spacing: 0.12em;
-      font-style: italic;
-      margin-top: 1rem;
-    }
-
-    /* Responsive dynasty */
-    @media (max-width: 1400px) {
-      .hero, .gallery { grid-template-columns: 1fr; gap: 6rem; }
-      .reliquaries { grid-template-columns: 1fr; }
-      .vitrine-grid { flex-direction: column; gap: 2rem; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-container, .estate { padding-left: 2.5rem; padding-right: 2.5rem; }
-      main { padding-top: 160px; gap: 10rem; }
-      .nav { gap: 2.5rem; }
+    @media (max-width: 640px) {
+      main { gap: 80px; padding-top: 80px; }
+      .nav-links { font-size: 0.7rem; gap: 16px; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="logo">Deity</a>
-      <div class="nav">
-        <a href="#hero">Hall</a>
-        <a href="#about">Gallery</a>
-        <a href="#contact">Altar</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="estate">
-    <main>
-      <!-- Hero Hall -->
-      <section id="hero" class="hero">
-        <div>
-          <div class="section-label">Dynastic Estate</div>
-          <h1 class="section-title">Deity</h1>
-          <p class="hero-subtitle">
-            Polymath | <span class="elo-insignia">Chess Master Elo 2550+</span> | 
-            Bot & Web Engineering | Rental Operations | Content Architecture
-          </p>
-          
-          <div class="reliquaries">
-            <div class="reliquary">
-              <div class="reliquary-label">Strategic Dynasty</div>
-              <div class="reliquary-title">2550+</div>
-              <div class="reliquary-text">Grandmaster precision across eternal domains</div>
-            </div>
-            <div class="reliquary">
-              <div class="reliquary-label">Engineering</div>
-              <div class="reliquary-title">Automation</div>
-              <div class="reliquary-text">Silent architecture of sovereign perfection</div>
-            </div>
-            <div class="reliquary">
-              <div class="reliquary-label">Operations</div>
-              <div class="reliquary-title">Rental Estate</div>
-              <div class="reliquary-text">Strategic cashflow dynasties refined</div>
-            </div>
-          </div>
-
-          <a href="#contact" class="dynastic-seal">Commission</a>
-        </div>
-
-        <!-- Cognitive integrated into gallery below -->
-      </section>
-
-      <!-- Gallery with integrated cognitive -->
-      <section id="about" class="gallery">
-        <div>
-          <div class="section-label">Eternal Commission</div>
-          <h2 class="section-title">2550+ Elo supremacy across dominions</h2>
-          <p class="gallery-text">
-            Grandmaster chess discipline (2550+ Elo) powers engineering automation, rental estate 
-            operations, and content systems architecture. <strong>INTJ 5w6 sp/sx 514</strong> cognitive 
-            supremacy prioritizes eternal structural dominance over ephemeral aesthetics. Every 
-            commission compounds through geometric refinement that transcends generations.
-          </p>
-        </div>
-
-        <div class="cognitive-vitrine">
-          <div class="vitrine-title">Cognitive Supremacy</div>
-          <div class="vitrine-grid">
-            <div class="cognitive-facet">
-              <div class="facet-type">INTJ</div>
-              <div class="facet-desc">Supreme architect of eternity</div>
-            </div>
-            <div class="cognitive-facet">
-              <div class="facet-type">5w6 sp/sx</div>
-              <div class="facet-desc">Strategic isolation perfected</div>
-            </div>
-            <div class="cognitive-facet">
-              <div class="facet-type">514 Tritype</div>
-              <div class="facet-desc">Competence eternalized</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sovereign Altar -->
-      <section id="contact" class="altar">
-        <div class="section-label">Sovereign Commission</div>
-        <h2 class="section-title">Ultra-selective dynastic engagements</h2>
-        <p class="altar-text">
-          Systems supremacy + grandmaster execution for commissions demanding eternal compound value. 
-          Serious estates where architectural depth creates generational advantage.
-        </p>
-
-        <div class="altar-actions">
-          <a href="mailto:deityxterror@gmail.com" class="dynastic-seal">Primary Dynasty</a>
-          <div class="imperial-pendants">
-            <a href="https://instagram.com/deity_terror" class="pendant" target="_blank" rel="noopener">IG</a>
-            <a href="https://linkedin.com/in/deity_terror" class="pendant" target="_blank" rel="noopener">LI</a>
-          </div>
-        </div>
-
-        <div class="dynastic-mark">@deity_terror</div>
-      </section>
-    </main>
+  <!-- Sticky Nav -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div class="brand">Deity</div>
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
   </div>
 
+  <main>
+    <!-- Hero (blank content zone) -->
+    <section id="hero">
+      <p class="section-label">Hero</p>
+      <h1 class="section-title">Your main headline here.</h1>
+      <p>Add your hero content.</p>
+    </section>
+
+    <!-- About (blank content zone) -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <h2 class="section-title">About you.</h2>
+      <p>Add your about text here.</p>
+    </section>
+
+    <!-- Contact (blank content zone) -->
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Reach out.</h2>
+      <p>Add email, social links, etc.</p>
+    </section>
+  </main>
+
   <script>
-    // Navbar celestial refinement
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      const scrolled = window.scrollY > 100;
-      navbar.style.background = scrolled 
-        ? 'rgba(12, 7, 7, 0.98)' 
-        : 'rgba(12, 7, 7, 0.94)';
-    });
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
 
-    // Section unveilings
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { 
-      threshold: 0.06, 
-      rootMargin: '0px 0px -100px 0px' 
-    });
-
-    document.querySelectorAll('section').forEach(section => {
+    document.querySelectorAll("main section").forEach((section) => {
       observer.observe(section);
     });
   </script>
